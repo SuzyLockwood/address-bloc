@@ -7,7 +7,7 @@ module.exports = class MenuController {
         type: 'list',
         name: 'mainMenuChoice',
         message: 'Please choose from an option below: ',
-        choices: ['Add new contact', 'Exit']
+        choices: ['Add new contact', 'Remind me', 'Exit']
       }
     ];
     this.contacts = [];
@@ -21,6 +21,9 @@ module.exports = class MenuController {
         switch (response.mainMenuChoice) {
           case 'Add new contact':
             this.addContact();
+            break;
+          case 'Remind me':
+            this.remindMe();
             break;
           case 'Exit':
             this.exit();
@@ -50,5 +53,11 @@ module.exports = class MenuController {
   }
   getContactCount() {
     return this.contacts.length;
+  }
+
+  remindMe() {
+    this.clear();
+    console.log('Learning is a life-long pursuit');
+    return 'Learning is a life-long pursuit';
   }
 };
